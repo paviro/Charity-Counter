@@ -81,7 +81,6 @@ function animateCounter(value) {
 					// replace '.' separator with ','
 					floored_number = floored_number.toString().replace('.', ',');
 				}
-				console.log(parseFloat( $("#currentDonations").text() ));
 				target.text(floored_number);
 			}
 		},

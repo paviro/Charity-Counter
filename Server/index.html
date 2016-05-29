@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <title>Charity Counter Server by Paul-Vincent Roll - CSS by Thibaut Courouble (MIT License)</title>
     <script>window.$ = window.jQuery = require('jquery');</script>
-    <script src="js/datepicker/picker.js"></script>
-    <script src="js/datepicker/picker.date.js"></script>
-    <script src="js/datepicker/picker.time.js"></script>
+    <script>require("air-datepicker")</script>
+    <script src="node_modules/air-datepicker/dist/js/i18n/datepicker.en.js"></script>
+    
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/datepicker/default.css">
-    <link rel="stylesheet" href="css/datepicker/default.date.css">
-    <link rel="stylesheet" href="css/datepicker/default.time.css">
-    
+    <link href="node_modules/air-datepicker/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
-    
     <link rel="stylesheet" href="node_modules/chartist/dist/chartist.min.css">
     
   </head>
@@ -23,9 +19,9 @@
   <form id="addDonation" class="form">
     <h1 class="title">Charity Counter Server</h1>
     <h2 class="subtitle IP" id="localIP">Starting...</h2>
-    <input type="text" class="input" id="timepicker" placeholder="When does your event end?" autofocus>
-    <input type="float" id="donationValue" class="input" placeholder="20.00">
-    <input type="submit" value="Submit Donation!" class="button" disabled>
+    <input type="text" class="input datepicker-here" id="timepicker" data-position="left top" placeholder="When does your event end?">
+    <input type="float" id="donationValue" class="input" placeholder="20.00" autofocus>
+    <input type="submit" value="Submit Donation!" class="button" disabled> 
     </form>
     
   </body>

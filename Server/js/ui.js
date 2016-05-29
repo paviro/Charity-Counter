@@ -38,22 +38,14 @@ require('dns').lookup(require('os').hostname(), function (err, add, fam) {
 })
 
 //Initialize time picker
-$('#timepicker').pickatime({
-	formatLabel: function(time) {
-		var hours = ( time.pick - this.get('now').pick ) / 60,
-			label = hours < 0 ? ' !hours to now' : hours > 0 ? ' !hours from now' : 'now'
-		return  'H:i ' + ( hours ? Math.abs(hours) : '' ) + label +'</sm!all>'
-	},
-	onSet: function(context) {
-		//Get current date
-		var currentDate = new Date();
-		//Set time to midnight
-		currentDate.setHours(0,0,0,0);
-		//Add selected time in minutes since midnight to todays date
-		date = new Date(currentDate.getTime() + context.select*60000);
-		//Send date to UI
-		socket.emit("setupSettings", { date: date })
-		}
+$('#timepicker').datepicker({
+	language: 'en',
+	timepicker: true,
+	todayButton: new Date(),
+	minDate: new Date(),
+	onSelect: function (fd, d, picker) {
+		socket.emit("setupSettings", { date: d })
+	}
 });
 
 //Overwrite form submit button

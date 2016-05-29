@@ -36,6 +36,7 @@
     "socket.io-client": "latest",
     "jquery": "latest",
     "chartist": "latest",
-    "sweetalert2": "latest"
+    "sweetalert2": "latest",
+    "air-datepicker": "latest"
     }
 }
