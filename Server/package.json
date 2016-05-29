@@ -1,6 +1,6 @@
 {
   "name": "Charity-Counter-Server",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Displays a contdown and donations on a monitor.",
   "main": "main.js",
   "scripts": {
