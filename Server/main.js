@@ -69,9 +69,9 @@ io.on('connection', function(socket){
     
     mainWindow.webContents.printToPDF(options, (error, data) => {
       if (error) throw error;
-      fs.writeFile(path.join(app.getPath("desktop"), '/Charity Counter.pdf'), data, (error) => {
+      fs.writeFile(path.join(app.getPath("desktop"), 'Charity Counter.pdf'), data, (error) => {
         if (error) throw error;
-        shell.openItem(path.join(app.getPath("desktop"), '/Charity Counter.pdf'));
+        shell.openItem(path.join(app.getPath("desktop"), 'Charity Counter.pdf'));
         console.log('Write PDF successfully.');
         app.exit(0)
       });
