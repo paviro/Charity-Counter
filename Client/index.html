@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Charity Counter Client by Paul-Vincent Roll</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <script>window.$ = window.jQuery = require('jQuery');</script>
+   <script src="js/jquery.animateNumber.js"></script> 
+  </head>
+  <body>
+  <div class="wrapper">
+  
+  <div id="donations">
+     <span id="currentDonations">0</span> €
+  </div>
+   
+  <div id="countdown">
+  </div>
+  
+  </div>
+  
+   <form action="#" method="post" id="ip">
+      <div class="header">
+         <p>Charity Counter Client</p>
+      </div>
+      <div class="description">
+        <p>Please provide the server IP address.</p>
+      </div>
+      <div class="input">
+        <input type="text" class="button" id="ipField" name="ip" placeholder="192.168.178.21">
+        <input type="submit" class="button" id="submit" value="Start">
+      </div>
+    </form>
+    <script>
+      // You can also require other files to run in this process
+      require('./js/ui.js')
+      </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "name": "Charity-Counter-Client",
+  "productName": "Charity-Counter-Client",
+  "version": "0.0.1",
+  "description": "Displays a contdown and donations on a monitor.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "prestart": "npm install",
+    "package": "electron-packager . --platform=darwin,win32 --arch=ia32,x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paviro/Charity-Counter.git"
+  },
+  "keywords": [
+    "contdown",
+    "donations",
+    "Charity"
+  ],
+  "author": "GitHub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paviro/Charity-Counter/issues"
+  },
+  "homepage": "https://github.com/paviro/Charity-Counter#readme",
+  
+  "devDependencies": {
+    "electron-prebuilt": "latest",
+    "electron-packager": "latest"
+  },
+  "dependencies": {
+    "http": "latest",
+    "socket.io": "latest",
+    "socket.io-client": "latest",
+    "jquery": "latest"
+    }
+}
