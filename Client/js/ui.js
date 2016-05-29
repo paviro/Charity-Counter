@@ -47,9 +47,6 @@ function setup(serverIP) {
 			var diff = (date.getTime()/1000) - (now.getTime()/1000);
 
 			if (data.date != null) {
-				$("#donations").animate({"margin-top": "0%"}, 700, function () {
-					$( "#countdown" ).fadeIn( "slow" );
-				});
 				initializeCountdown("countdown", data.date);
 			}
 		
@@ -114,6 +111,10 @@ var timeinterval = undefined
 function initializeCountdown(id, endtime){
 	if(typeof timeinterval !== "undefined"){
 		clearTimeout(timeinterval);
+	} else {
+		$("#donations").animate({"margin-top": "0%"}, 700, function () {
+			$( "#countdown" ).fadeIn( "slow" );
+		});
 	}
 	var clock = document.getElementById(id);
 	timeinterval = setInterval(function(){
@@ -123,10 +124,16 @@ function initializeCountdown(id, endtime){
 		var minutes = "<div id='minutes'>" + t.minutes + "<span class='sub'>Minutes</span></div>" 
 		var seconds = "<div id='seconds'>" + t.seconds + "<span class='sub'>Seconds</span></div>" 
 		
-		clock.innerHTML = hours + minutes + seconds;
-		
 		if(t.total<=0){
 			clearInterval(timeinterval);
+			$( "#countdown" ).fadeOut("slow", function () {
+				$("#donations").animate({"margin-top": "15%"}, 700)
+			});
+			timeinterval = undefined
 		}
+		else{
+			clock.innerHTML = hours + minutes + seconds;
+		}
+		
 	},500);
 }
