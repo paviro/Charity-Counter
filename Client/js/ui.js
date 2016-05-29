@@ -115,11 +115,13 @@ function initializeCountdown(id, endtime){
 		$("#donations").animate({"margin-top": "0%"}, 700, function () {
 			$( "#countdown" ).fadeIn( "slow" );
 		});
-	}
-	var clock = document.getElementById(id);
+	};
+	
+	if (getTimeRemaining(endtime).days > 0) { var showDay = true } else { var showDay = false }
+	
 	timeinterval = setInterval(function(){
-		
 		var t = getTimeRemaining(endtime);
+		var days = "<div id='days'>" + t.days + "<span class='sub'>Days</span></div>"
 		var hours = "<div id='hours'>" + t.hours + "<span class='sub'>Hours</span></div>" 
 		var minutes = "<div id='minutes'>" + t.minutes + "<span class='sub'>Minutes</span></div>" 
 		var seconds = "<div id='seconds'>" + t.seconds + "<span class='sub'>Seconds</span></div>" 
@@ -132,7 +134,12 @@ function initializeCountdown(id, endtime){
 			timeinterval = undefined
 		}
 		else{
-			clock.innerHTML = hours + minutes + seconds;
+			if (showDay) {
+				document.getElementById(id).innerHTML = days + hours + minutes + seconds;
+			}
+			else {
+				document.getElementById(id).innerHTML = hours + minutes + seconds;
+			}
 		}
 		
 	},500);

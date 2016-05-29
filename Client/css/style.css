@@ -85,6 +85,11 @@ body {
 	display: none;
 }
 
+#days{
+	display: inline-block;
+	padding-right: 20px;
+}
+
 #hours{
 	display: inline-block;
 	padding-right: 20px;
