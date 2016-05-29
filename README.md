@@ -16,7 +16,7 @@ The client software can be started on as many computers as you like providing yo
 - [jQuery](https://www.npmjs.com/package/jquery) (MIT License)
 - [chartist](https://www.npmjs.com/package/chartist) (Do What The F*ck You Want To Public License)
 - [SweetAlert2](https://www.npmjs.com/package/sweetalert2) (MIT License)
-- [pickadate.js](http://amsul.github.io/pickadate.js) (MIT License)
+- [air-datepicker](https://github.com/t1m0n/air-datepicker) (MIT License)
 - [jquery-animateNumber](http://www.cssflow.com/snippets/sign-up-form) ([MIT License](https://github.com/aishek/jquery-animateNumber/blob/master/LICENSE))
 - [Sign Up Form](http://www.cssflow.com/snippets/sign-up-form) ([MIT License](http://www.cssflow.com/mit-license))
 - [Sign Up For Beta Form](http://codepen.io/erikapdx/pen/BnfjH)
