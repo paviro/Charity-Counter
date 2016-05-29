@@ -1,15 +1,13 @@
 # Charity Counter
-I wrote this for an annual charity event I helped organize when I still was in school. The projects consists out of two components a `client` and a `server`.
+Use `Charity Counter` to provide attendees of your events interesting insides into how much donations were already collected. We made the experience that live information like this can be used to motivate visitors into reaching the next donation milestone in a fun and entertaining way, giving them direct feedback what was already accomplished.
 
-## Server
+## Easy To Use Server
 ![server](https://cloud.githubusercontent.com/assets/992826/15629543/98491702-251b-11e6-9208-d0377f51a95a.png)
-The `server` hosts the `socket` the clients will connect to. It is used to `set` the `end time` of the event and also to `add` new `donations`.
-Closing the server will give you the option to `export` the displayed `chart` as a `pdf file`.
+The Charity Counter Project provides an easy to use administration interface which you can use to add new donations as well as setting the end date for the countdown. The countdown is completly optional if you do not set a date it will not be displayed. Under the hood the server hosts a socket all clients listen on so you get instant updates on all your screens and projectors running the client software. Quitting the server after your event will give you the option to export the displayed chart as a beautiful PDF file.
 
-## Client
+## Client For Projectors And Other Screens
 ![client](https://cloud.githubusercontent.com/assets/992826/15629542/96c2a86c-251b-11e6-8da8-9fa55d39c603.png)
-The `client` is supposed to run on a `projector` or `large screen`. You can start it on as many different computers as you like in order to have `multiple` displays.
-All `clients` should be `in sync` with the `server`.
+The client software can be started on as many computers as you like providing you with the possibility to add multiple screens all over your event location. We usually run one client on a big projector and several others on smaller screens in the catering area and on information desks. All clients are in sync with the server, so there is nothing manual to do for you. All you have to do is enter the IP address of your server and you are good to go!
 
 ## Code used in this project
 - [Electron](http://electron.atom.io) ([MIT License](https://github.com/electron/electron/blob/master/LICENSE))
