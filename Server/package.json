@@ -1,12 +1,14 @@
 {
   "name": "Charity-Counter-Server",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Displays a contdown and donations on a monitor.",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
     "prestart": "npm install",
-    "package": "electron-packager . --platform=darwin,win32 --arch=ia32,x64"
+    "package": "electron-packager . --all",
+    "osx": "electron-packager . --platform=darwin --arch=ia32,x64",
+    "win": "electron-packager . --platform=win32 --arch=ia32,x64"
   },
   "repository": {
     "type": "git",
