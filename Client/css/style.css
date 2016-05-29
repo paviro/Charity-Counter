@@ -16,12 +16,6 @@ body {
 	overflow: hidden;
 	
 }
-@font-face {
-	font-family: ConsolaMono;
-	src: url("fonts/ConsolaMono.otf") format("opentype");
-}
-
-
 
 .connectionShake {
 	animation: connectionShake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -68,7 +62,6 @@ body {
 }
 
 #countdown{
-	font-family: "ConsolaMono", sans-serif;
 	text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.7);
 	font-size: 30vmin;
 	text-align: center;
@@ -117,7 +110,6 @@ body {
 
 #donations{
 	margin-top: 15%;
-	font-family: "ConsolaMono", sans-serif;
 	font-size: 25vmin;
 	text-align: center;
 	vertical-align: middle;
