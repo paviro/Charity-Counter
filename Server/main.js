@@ -1,3 +1,10 @@
+/* Charity Counter Project
+ * Server Software
+ *
+ * By Paul-Vincent Roll http://paulvincentroll.com
+ * MIT Licensed.
+ */
+
 const electron = require('electron');
 const shell = require('electron').shell;
 const path = require('path');

@@ -1,8 +1,13 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+/* Charity Counter Project
+ * Client Software
+ *
+ * By Paul-Vincent Roll http://paulvincentroll.com
+ * MIT Licensed.
+ */
 
+//Variables
 var totalDonations = 0
+var countdownInterval = undefined
 
 //Add OSX Menubar when on OSX
 if (process.platform == "darwin") {
@@ -23,37 +28,34 @@ function setup(serverIP) {
 	var socket = require('socket.io-client')('http://' + serverIP + ':8080');
 	
 		socket.on('connect_error', function() {
+			//Get Input field
 			var input = document.getElementsByClassName("input")[0];
+			//Restart CSS shake animation
 			input.classList.remove("connectionShake");
 			input.offsetWidth = input.offsetWidth;
 			input.classList.add("connectionShake");
+			//Stop socket.io from trying to reconnect
 			socket.io.reconnection(false);
 		});
 		
 		socket.on('connect', function () { 
 			//Fade out form
 			$( "#ip" ).fadeOut( "slow")
-			$( "#footer" ).fadeOut( "slow")
 			//Fade in clock and donation
 			$( ".wrapper" ).fadeIn( "slow" );
 		});
 		
 		socket.on("setup", function (data) {
-			//$('#donations').text(data.donations + " €");
+			//Animate donation counter to new value
 			animateCounter(data.donations)
-			
-			var date = new Date(data.date);
-			var now = new Date();
-			var diff = (date.getTime()/1000) - (now.getTime()/1000);
-
-			if (data.date != null) {
-				initializeCountdown("countdown", data.date);
-			}
-		
+			//If date is set initialize countdown
+			if (data.date != null) { initializeCountdown("countdown", data.date) }
 		});
 		
 		socket.on('update', function (donations) { 
+			//Update donations
 			animateCounter(donations)
+			//Update totalDonations array
 			totalDonations = donations
 		});
 		
@@ -106,20 +108,18 @@ function getTimeRemaining(endtime){
 	};
 }
 
-var timeinterval = undefined
-
 function initializeCountdown(id, endtime){
-	if(typeof timeinterval !== "undefined"){
-		clearTimeout(timeinterval);
+	if(typeof countdownInterval !== "undefined"){
+		clearTimeout(countdownInterval);
 	} else {
 		$("#donations").animate({"margin-top": "0%"}, 700, function () {
 			$( "#countdown" ).fadeIn( "slow" );
 		});
 	};
 	
-	if (getTimeRemaining(endtime).days > 0) { var showDay = true } else { var showDay = false }
+	var showDay = getTimeRemaining(endtime).days > 0 ? true : false;
 	
-	timeinterval = setInterval(function(){
+	countdownInterval = setInterval(function(){
 		var t = getTimeRemaining(endtime);
 		var days = "<div id='days'>" + t.days + "<span class='sub'>Days</span></div>"
 		var hours = "<div id='hours'>" + t.hours + "<span class='sub'>Hours</span></div>" 
@@ -127,19 +127,14 @@ function initializeCountdown(id, endtime){
 		var seconds = "<div id='seconds'>" + t.seconds + "<span class='sub'>Seconds</span></div>" 
 		
 		if(t.total<=0){
-			clearInterval(timeinterval);
+			clearInterval(countdownInterval);
 			$( "#countdown" ).fadeOut("slow", function () {
 				$("#donations").animate({"margin-top": "15%"}, 700)
 			});
-			timeinterval = undefined
+			countdownInterval = undefined
 		}
 		else{
-			if (showDay) {
-				document.getElementById(id).innerHTML = days + hours + minutes + seconds;
-			}
-			else {
-				document.getElementById(id).innerHTML = hours + minutes + seconds;
-			}
+			document.getElementById(id).innerHTML = showDay ? days + hours + minutes + seconds : hours + minutes + seconds;
 		}
 		
 	},500);

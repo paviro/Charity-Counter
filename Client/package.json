@@ -1,7 +1,7 @@
 {
   "name": "Charity-Counter-Client",
   "productName": "Charity-Counter-Client",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Displays a contdown and donations on a monitor.",
   "main": "main.js",
   "scripts": {

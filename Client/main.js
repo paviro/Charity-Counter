@@ -1,3 +1,10 @@
+/* Charity Counter Project
+ * Client Software
+ *
+ * By Paul-Vincent Roll http://paulvincentroll.com
+ * MIT Licensed.
+ */
+
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app

@@ -1,3 +1,10 @@
+/* Charity Counter Project
+ * Server Software
+ *
+ * By Paul-Vincent Roll http://paulvincentroll.com
+ * MIT Licensed.
+ */
+
 var donationHistory = {donations: [], labels: []}
 
 //For alerts
