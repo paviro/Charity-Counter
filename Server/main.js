@@ -1,4 +1,7 @@
-const electron = require('electron')
+const electron = require('electron');
+const shell = require('electron').shell;
+const path = require('path');
+const fs = require("fs")
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -55,9 +58,7 @@ io.on('connection', function(socket){
     app.exit(0)
   });
   
-  socket.on('exportQuit', function () {
-    const fs = require("fs")
-    
+  socket.on('exportQuit', function () {    
     const options = {
       marginsType: 1,
       pageSize: "A4",
@@ -68,8 +69,9 @@ io.on('connection', function(socket){
     
     mainWindow.webContents.printToPDF(options, (error, data) => {
       if (error) throw error;
-      fs.writeFile(app.getPath("desktop") + '/Charity Counter.pdf', data, (error) => {
+      fs.writeFile(path.join(app.getPath("desktop"), '/Charity Counter.pdf'), data, (error) => {
         if (error) throw error;
+        shell.openItem(path.join(app.getPath("desktop"), '/Charity Counter.pdf'));
         console.log('Write PDF successfully.');
         app.exit(0)
       });
