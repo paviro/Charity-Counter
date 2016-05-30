@@ -14,16 +14,19 @@
     
   </head>
   <body>
-  <div id="chart">
-  </div>
-  <form id="addDonation" class="form">
-    <h1 class="title">Charity Counter Server</h1>
-    <h2 class="subtitle IP" id="localIP">Starting...</h2>
-    <input type="text" class="input datepicker-here" id="timepicker" data-position="left top" placeholder="When does your event end?">
-    <input type="float" id="donationValue" class="input" placeholder="20.00" autofocus>
-    <input type="submit" value="Submit Donation!" class="button" disabled> 
-    </form>
-    
+  <section class="content">
+    <div id="chart"></div>
+    <div class="form-wrapper">
+      <h1 class="title">Charity Counter Server</h1>
+      <h2 class="subtitle IP" id="localIP">Starting...</h2>
+
+      <form id="addDonation" class="form">
+        <input type="text" class="input datepicker-here" id="timepicker" data-position="left top" placeholder="When does your event end?">
+        <input type="float" id="donationValue" class="input" placeholder="20.00" autofocus>
+        <input type="submit" value="Submit Donation!" class="button" disabled>
+        </form>
+      </div>
+    </section>
   </body>
   
   <script>
