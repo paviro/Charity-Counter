@@ -31,8 +31,30 @@ new Chartist.Line('#chart', {
 	fullWidth: true,
 	chartPadding: {
 		right: 40
+	},
+	axisX: {
+		scaleMinSpace: 3,
+		labelInterpolationFnc: function skipLabels(value, index, labels) {
+			return index % 3  === 0 ? value : null;
+		}
 	}
-});
+	
+},
+[
+['screen and (min-width: 641px) and (max-width: 1024px)', {
+	showPoint: false,
+	axisX: {
+		showLabel: false,
+		showGrid: false,
+	},
+	axisY: {
+		showGrid: true,
+		showLabel: true,
+		
+	}
+}]
+]
+);
 
 //Add OSX Menubar when on OSX
 if (process.platform == "darwin") {
