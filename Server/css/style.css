@@ -9,6 +9,14 @@ input, button, textarea, :focus {
   outline: none;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 #menuBar{
   position: absolute;
   top: 0px;
@@ -33,13 +41,16 @@ body {
   overflow: hidden;
 }
 
+.content {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
 #chart {
-  display: inline-block;
   float: left;
-  left: 5%;
-  position: relative;
-  margin: 120px auto;
-  width: 50%;
+  width: 55%;
   height: 300px;
   padding: 33px 25px 29px;
   background: white;
@@ -49,20 +60,34 @@ body {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }
 
-.form {
-  display: inline-block;
+.form-wrapper {
   position: relative;
-  margin: 120px auto;
-  width: 280px;
-  padding: 33px 25px 29px;
-  left: 10%;
+  width: 40%;
+  float: right;
   background: white;
   border-bottom: 1px solid #c4c4c4;
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }
-.form:before, .form:after {
+
+@media screen and (max-width: 600px) {
+
+  #chart {
+    width: 100%;
+    float: none;
+    margin: 0 auto;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    float: none;
+    margin: 20px auto 0 auto;
+  }
+
+}
+
+.form-wrapper:before, .form:after {
   content: '';
   position: absolute;
   bottom: 1px;
@@ -73,16 +98,20 @@ body {
   border-bottom: 1px solid #d2d2d2;
   border-radius: 4px;
 }
-.form:after {
+.form-wrapper:after {
   bottom: 3px;
   border-color: #dcdcdc;
 }
 
+.form {
+  width: 90%;
+  margin: 0 auto 20px auto;
+}
+
 .title {
-  margin: -25px -25px 25px;
-  padding: 15px 25px;
+  width: 100%;
   padding-top: 30px;
-  line-height: 0px;
+  line-height: 30px;
   font-size: 26px;
   font-weight: 300;
   color: #aaa;
@@ -91,7 +120,6 @@ body {
   background: #f7f7f7;
 }
 .subtitle {
-  margin: -25px -25px 25px;
   line-height: 50px;
   font-size: 17px;
   font-weight: 300;
