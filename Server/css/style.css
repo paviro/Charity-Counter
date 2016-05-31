@@ -74,21 +74,34 @@ body {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }
 
-/*@media screen and (max-width: 750px) {*/
-/**/
-/*  #chart {*/
-/*    width: 100%;*/
-/*    float: none;*/
-/*    margin: 0 auto;*/
-/*  }*/
-/**/
-/*  .form-wrapper {*/
-/*    width: 100%;*/
-/*    float: none;*/
-/*    margin: 20px auto 0 auto;*/
-/*  }*/
-/**/
-/*}*/
+@media screen and (max-height: 500px) {
+  
+  .content {
+  padding-top: 75px;
+  }
+
+}
+
+@media screen and (min-height: 700px) {
+  
+  #chart {
+    height: 559px;
+  }
+
+}
+
+@media screen and (min-height: 900px) {
+
+  .content {
+    padding-top: 80px;
+  }
+  
+  #chart{
+    height: 759px;
+    margin-right: 55px;
+  }
+
+}
 
 .form-wrapper:before, .form:after {
   content: '';
