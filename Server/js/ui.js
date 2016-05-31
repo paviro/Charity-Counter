@@ -5,6 +5,9 @@
  * MIT Licensed.
  */
 
+//Disable zooming
+require('electron').webFrame.setZoomLevelLimits(1, 1);
+
 var donationHistory = {donations: [], labels: []}
 
 //For alerts
@@ -84,6 +87,13 @@ $(document).ready(function() {
 
 //Conection to server backend
 const backend = require('electron').ipcRenderer
+
+backend.on('hideMenu', (event) => {
+	$( "#menuBar" ).fadeOut(0)
+});
+backend.on('showMenu', (event) => {
+	$( "#menuBar" ).fadeIn(0)
+});
 
 backend.on('quitAlert', (event) => {
 	swal({

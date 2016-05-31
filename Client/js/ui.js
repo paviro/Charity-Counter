@@ -5,6 +5,9 @@
  * MIT Licensed.
  */
 
+//Disable zooming
+require('electron').webFrame.setZoomLevelLimits(1, 1);
+
 //Variables
 var totalDonations = 0
 var countdownInterval = undefined

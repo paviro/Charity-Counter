@@ -102,17 +102,22 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1100, height: 600, titleBarStyle: "hidden-inset"})
+  mainWindow = new BrowserWindow({width: 1100, height: 600, minWidth: 751, titleBarStyle: "hidden-inset"})
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   
-  mainWindow.setResizable(false)
-  mainWindow.setFullScreenable(false)
-  
   mainWindow.on('close', function(e) {
     e.preventDefault();
     mainWindow.webContents.send('quitAlert');
+  });
+  
+  mainWindow.on('enter-full-screen', function(e) {
+    mainWindow.webContents.send('hideMenu');
+  });
+  
+  mainWindow.on('leave-full-screen', function(e) {
+    mainWindow.webContents.send('showMenu');
   });
 
   // Emitted when the window is closed.
