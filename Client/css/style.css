@@ -48,33 +48,29 @@ body {
 	left: 0px;
 	height: 35px;
 	width: 100%;
-	-webkit-app-region: drag
+	-webkit-app-region: drag;
 }
 .wrapper {
 	display: none;
-	position: absolute;
-	top: 13%;
-	width: 100%;
+	position: relative;
+	
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
-.divider{
-	border-left: thin solid white;
+#content{
+	width: 900px;
+	height: 430px;
+	position: relative;
+	-webkit-transform-origin: top left;
 }
 
 #countdown{
 	text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.7);
-	font-size: 30vmin;
 	text-align: center;
 	vertical-align: middle;
-	margin-left: 5%;
-	margin-right: 5%;
 	margin-top: 5%;
-	padding-left: 50px;
-	padding-right: 50px;
-	border-radius: 10px;
-	max-width: 100%;
-	max-height: 50%;
-	height: auto;  
 	display: none;
 }
 
@@ -90,9 +86,16 @@ body {
 
 .sub{
 	display: block;
-	top: -30px;
 	position: relative;
+}
+
+.smallSub {
+	font-size: 20px;
+	top: -20px;
+}
+.normSub{
 	font-size: 25px;
+	top: -30px;
 }
 
 #minutes{
@@ -109,18 +112,13 @@ body {
 }
 
 #donations{
-	margin-top: 15%;
-	font-size: 25vmin;
+	position: relative;
+	font-size: 130px;
 	text-align: center;
 	vertical-align: middle;
-	margin-left: 5%;
-	margin-right: 5%;
-	padding-left: 50px;
-	padding-right: 50px;
+	width: 95%;
+	margin-left: 22px;
 	border-radius: 10px;
-	max-width: 100%;
-	max-height: 50%;
-	height: auto;  
 	background: #0f161f;
 	box-shadow: inset 0px -1px 8px -6px #FFFFFF;
 	-webkit-box-shadow: inset 0px -1px 8px -6px #FFFFFF;

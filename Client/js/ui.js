@@ -7,10 +7,13 @@
 
 //Disable zooming
 require('electron').webFrame.setZoomLevelLimits(1, 1);
+//Browser Window
+const mainWindow = require('electron').remote;
 
 //Variables
 var totalDonations = 0
 var countdownInterval = undefined
+var fullscreen = false
 
 //Add OSX Menubar when on OSX
 if (process.platform == "darwin") {
@@ -122,12 +125,20 @@ function initializeCountdown(id, endtime){
 	
 	var showDay = getTimeRemaining(endtime).days > 0 ? true : false;
 	
+	var cssClass = showDay ? "smallSub" : "normSub";
+	
+	if (showDay){
+		$("#countdown").css({"font-size":"140px"});
+	} else{
+		$("#countdown").css({"font-size":"180px"});
+	}
+	
 	countdownInterval = setInterval(function(){
 		var t = getTimeRemaining(endtime);
-		var days = "<div id='days'>" + t.days + "<span class='sub'>Days</span></div>"
-		var hours = "<div id='hours'>" + t.hours + "<span class='sub'>Hours</span></div>" 
-		var minutes = "<div id='minutes'>" + t.minutes + "<span class='sub'>Minutes</span></div>" 
-		var seconds = "<div id='seconds'>" + t.seconds + "<span class='sub'>Seconds</span></div>" 
+		var days = "<div id='days'>" + t.days + "<span class='sub " + cssClass + "'>Days</span></div>"
+		var hours = "<div id='hours'>" + t.hours + "<span class='sub " + cssClass + "'>Hours</span></div>" 
+		var minutes = "<div id='minutes'>" + t.minutes + "<span class='sub " + cssClass + "'>Minutes</span></div>" 
+		var seconds = "<div id='seconds'>" + t.seconds + "<span class='sub " + cssClass + "'>Seconds</span></div>" 
 		
 		if(t.total<=0){
 			clearInterval(countdownInterval);
@@ -142,3 +153,19 @@ function initializeCountdown(id, endtime){
 		
 	},500);
 }
+
+function resize() {
+	var $window = $(window);
+	var width = $window.width();
+	var height = $window.height() - 35;
+	var scale = Math.min(width/maxWidth, height/maxHeight);
+
+	$('#content').css({'-webkit-transform': 'scale(' + scale + ')', "margin-top": -($('#content').height() - 35) * scale / 2, top: "50%"});
+	$('.wrapper').css({ width: maxWidth * scale, height: maxHeight * scale});
+}
+
+var maxWidth  = $('#content').width();
+var maxHeight = $('#content').height();
+resize()
+
+$(window).resize(function(){ resize() });
