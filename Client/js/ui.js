@@ -7,13 +7,10 @@
 
 //Disable zooming
 require('electron').webFrame.setZoomLevelLimits(1, 1);
-//Browser Window
-const mainWindow = require('electron').remote;
 
 //Variables
 var totalDonations = 0
 var countdownInterval = undefined
-var fullscreen = false
 
 //Add OSX Menubar when on OSX
 if (process.platform == "darwin") {
@@ -127,11 +124,7 @@ function initializeCountdown(id, endtime){
 	
 	var cssClass = showDay ? "smallSub" : "normSub";
 	
-	if (showDay){
-		$("#countdown").css({"font-size":"140px"});
-	} else{
-		$("#countdown").css({"font-size":"180px"});
-	}
+	if (showDay){ $("#countdown").css({"font-size":"140px"}) } else { $("#countdown").css({"font-size":"180px"}) }
 	
 	countdownInterval = setInterval(function(){
 		var t = getTimeRemaining(endtime);
